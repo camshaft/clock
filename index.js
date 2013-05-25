@@ -39,11 +39,17 @@ exports.off = function(fn) {
  * @api public
  */
 exports.start = function() {
+  // Check if we've already started
+  if (interval) return;
+
+  // Emit time updates
   function emit () {
     emitter.emit("tick", Math.floor(Date.now()/1000));
   };
+
   // Emit the time right now
   emit();
+
   // Start an interval
   interval = setInterval(emit, 1000);
 };
@@ -54,6 +60,6 @@ exports.start = function() {
  * @api public
  */
 exports.stop = function() {
-  if(interval) clearInterval(interval);
+  if (interval) clearInterval(interval);
   interval = null;
 };
