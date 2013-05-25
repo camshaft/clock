@@ -1,0 +1,19 @@
+{
+  "name": "clock",
+  "repo": "CamShaft/clock",
+  "description": "Clock emitter component",
+  "version": "1.0.0",
+  "keywords": [
+    "clock",
+    "tick",
+    "time"
+  ],
+  "dependencies": {
+    "component/emitter": "*"
+  },
+  "development": {},
+  "license": "APLv2",
+  "scripts": [
+    "index.js"
+  ]
+}

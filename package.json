@@ -1,0 +1,27 @@
+{
+  "name": "clock",
+  "version": "0.1.0",
+  "description": "Clock emitter",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test ./node_modules/.bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CamShaft/clock.git"
+  },
+  "keywords": [
+    "clock",
+    "tick",
+    "time"
+  ],
+  "author": "Cameron Bytheway <cameron@theflokk.com>",
+  "license": "MIT",
+  "dependencies": {
+    "emitter": "git://github.com/component/emitter"
+  },
+  "devDependencies": {
+    "should": "~1.2.2",
+    "mocha": "~1.10.0"
+  }
+}
