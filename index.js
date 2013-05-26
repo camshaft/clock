@@ -14,13 +14,35 @@ var emitter = new Emitter;
 var interval;
 
 /**
+ * Get the current time
+ *
+ * @api private
+ */
+function currentTime() {
+  return Math.floor(Date.now()/1000);
+};
+
+/**
+ * Emit time updates
+ *
+ * @api private
+ */
+function emit() {
+  emitter.emit("tick", currentTime());
+};
+
+/**
  * Subscribe to time updates
  *
  * @param {Function} fn
  * @api public
  */
 exports.on = function(fn) {
+  // Register the listener
   emitter.on("tick", fn);
+
+  // Give it a value
+  fn(currentTime());
 };
 
 /**
@@ -41,11 +63,6 @@ exports.off = function(fn) {
 exports.start = function() {
   // Check if we've already started
   if (interval) return;
-
-  // Emit time updates
-  function emit () {
-    emitter.emit("tick", Math.floor(Date.now()/1000));
-  };
 
   // Emit the time right now
   emit();

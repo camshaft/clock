@@ -9,8 +9,8 @@ describe("clock", function(){
     var past;
 
     clock.on(function(time) {
-      if(!past) return past = time;
-      (time-past).should.eql(1);
+      if(!past || past === time) return past = time;
+      (time - past).should.eql(1);
       clock.stop();
       done();
     });
